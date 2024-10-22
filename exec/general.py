@@ -9,20 +9,24 @@ class Unit:
 
     @abc.abstractmethod
     def __init__(self, id, commaind_id):
+        '''Метод инициализации'''
         pass
 
     @abc.abstractmethod
     def action(self, *args):
+        '''Метод действия'''
         pass
 
 
 class Solder(Unit):
 
     def __init__(self, id, command_id):
+        '''Метод инициализации солдата'''
         self.id = id
         self.command_id = command_id
 
     def action(self, hero):
+        '''Метод действия солдата'''
         if isinstance(hero, Hero):
             print("Солдат: Следую за Героем!")
         else:
@@ -32,22 +36,27 @@ class Solder(Unit):
 class Hero(Unit):
 
     def __init__(self, id, command_id):
+        '''Метод инициализации героя'''
         self.id = id
         self.command_id = command_id
         self.level = 1
 
     def action(self):
+        '''Метод действия героя'''
         self.level += 1
         print(f"Уровень Героя {self.id} повышен до уровня {self.level}!")
 
 
 if __name__ == '__main__':
-    hero1 = Hero(1, 0)
-    hero2 = Hero(2, 1)
+    '''Основной метод'''
+    hero1 = Hero(1, 0)  # Создание героя 1
+    hero2 = Hero(2, 1)  # Создание героя 2
 
+    # Создание список для распределения солдат
     firstTeamUnitList = []
     secondTeamUnitList = []
 
+    # Цикл для распределения солдат по командам
     for i in range(30):
         team = random.randint(0, 1)
         if team == 0:
@@ -58,6 +67,7 @@ if __name__ == '__main__':
     firstCount = firstTeamUnitList.__len__()
     secondCount = secondTeamUnitList.__len__()
 
+    # Сравнение количества солдат в каждой команде
     if firstCount > secondCount:
         hero1.action()
     elif secondCount > firstCount:
@@ -65,6 +75,7 @@ if __name__ == '__main__':
     else:
         print("Результат битвы: Ничья")
 
+    # Вывод детальной информации по командам
     print("-----" * 4, "[Команда 1]", "-----" * 4)
     print(f"Уровень героя: {hero1.level}")
     print(f"Количество юнитов в команде: {firstTeamUnitList.__len__()}\n")
