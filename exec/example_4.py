@@ -1,6 +1,12 @@
 # Python program invoking a
 # method using super()
 
+'''
+Рассмотрим пример вызова метода, используя super().
+
+Выполнил студент группы ИВТ-б-о-22-1
+'''
+
 from abc import ABC
 
 

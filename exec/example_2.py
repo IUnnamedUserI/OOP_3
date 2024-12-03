@@ -1,5 +1,12 @@
-# Python program showing
-# abstract base class work
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+'''
+Используя абстрактные методы, создать несколько классов,
+наследуемые от абстрактного.
+
+Выполнил студент группы ИВТ-б-о-22-1 Иващенко О.А.
+'''
 
 from abc import ABC, abstractmethod
 
